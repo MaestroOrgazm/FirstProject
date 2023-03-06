@@ -36,9 +36,10 @@ public class Bullet : MonoBehaviour
         while (transform.position != _spawner.EnemyList[0].transform.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, _spawner.EnemyList[0].transform.position, _speed * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
+        Debug.Log("111");
         _spawner.EnemyList[0].TakeDamage(_damage);
         Destroy(gameObject);
     }
