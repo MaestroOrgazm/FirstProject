@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e8757beb0aab24286e7fc8836bee40, type: 3}
+  m_Name: Grade6
+  m_EditorClassIdentifier: 
+  _grade: 6
+  _price: 25
+  _damage: 75
+  _bulletSpeed: 5
+  _attackSpeed: 1
+  _particleSystem: {fileID: 198993423900235080, guid: eca000ab44c908d4dab395f654753038, type: 3}
+  _template: {fileID: 6688149642241925542, guid: 0e5d4823c81bf8242bc89bd14b47b2da, type: 3}

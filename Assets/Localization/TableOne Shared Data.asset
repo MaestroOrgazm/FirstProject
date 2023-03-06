@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: TableOne Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: TableOne
+  m_TableCollectionNameGuidString: 1352148a567292049b16b9a345da8c30
+  m_Entries:
+  - m_Id: 1359412537577472
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1360761153114112
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1361346933805056
+    m_Key: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1372069508403200
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1384359481823232
+    m_Key: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9435782635311104
+    m_Key: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436157455093760
+    m_Key: Defeat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11848041592508416
+    m_Key: Win!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11848938041102336
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12969196403544064
+    m_Key: Free Dimonds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12976344797794304
+    m_Key: Current Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15461412871065600
+    m_Key: Pannels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15521930315026432
+    m_Key: Attack bonus
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8803913037166149656
+  references:
+    version: 2
+    RefIds:
+    - rid: 8803913037166149656
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1673544534571
