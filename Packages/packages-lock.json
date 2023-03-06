@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "4823bc58809b17c0c9642c2802476f8357b7d512"
     },
+    "com.agava.yandexgames": {
+      "version": "https://github.com/forcepusher/com.agava.yandexgames.git#11.2.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e6d74d2a2e4b2e43b2d185b1d25aa62a3e8ef6d5"
+    },
     "com.unity.addressables": {
       "version": "1.19.19",
       "depth": 1,
