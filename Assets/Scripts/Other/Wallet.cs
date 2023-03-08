@@ -8,7 +8,7 @@ public class Wallet : MonoBehaviour
     private static string _strAttackBonus = "AttackBonus";
     private static int _boolTrue = 1;
 
-    public static int Money { get; private set; }
+    public static int Money { get; private set; } = 15;
     public static int Dimonds { get; private set; }
     public static bool IsUpgrade { get; private set; }
     public static bool AttackBonus { get; private set; }

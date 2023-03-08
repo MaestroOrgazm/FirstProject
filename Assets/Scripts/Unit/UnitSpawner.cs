@@ -12,9 +12,12 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private GameObject _upgrade;
     [SerializeField] private EnemySpawner _spawner;
 
+    private int _price = 0;
+    private int _priceUp = 5;
+
     private void Start()
     {
-        _tmpText.text = _unit.Card.Price.ToString();
+        _tmpText.text = _price.ToString();
 
         if (Wallet.IsUpgrade)
             _upgrade.SetActive(true);
@@ -23,7 +26,7 @@ public class UnitSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        if (Wallet.Money >= _unit.Card.Price)
+        if (Wallet.Money >= _price)
         {
             int countPoint = 6;
 
@@ -37,7 +40,9 @@ public class UnitSpawner : MonoBehaviour
                 Unit unit = null;
                 unit = Instantiate(_unit, point);
                 unit.SetSpawner(_spawner);
-                Wallet.ChangeMoney(-_unit.Card.Price);
+                Wallet.ChangeMoney(-_price);
+                _price += _priceUp;
+                _tmpText.text = _price.ToString();
             }
         }
     }

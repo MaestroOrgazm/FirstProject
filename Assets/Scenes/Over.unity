@@ -548,7 +548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 896162609}
         m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
-        m_MethodName: NextScene
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

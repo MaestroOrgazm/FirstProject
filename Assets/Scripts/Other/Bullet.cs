@@ -7,40 +7,37 @@ public class Bullet : MonoBehaviour
     private float _speed;
     private float _damage;
     private Coroutine _coroutine;
-    private EnemySpawner _spawner;
+    private Enemy _target;
 
-    private void OnDisable()
-    {
-        if( _coroutine != null )
-            StopCoroutine( _coroutine );
-    }
-
-    public void SetValue(float damage, float speed, ParticleSystem system, EnemySpawner spawner)
+    public void SetValue(float damage, float speed, ParticleSystem system, Enemy enemy)
     {
         _damage = damage;
         _speed = speed;
-        _spawner = spawner;
         _system = system;
-        Instantiate(_system,transform);
+        _target = enemy;
+        Instantiate(_system, transform);
         _system.Play();
-        StartCoroutine();
-    }
-
-    private void StartCoroutine()
-    {
         _coroutine = StartCoroutine(StartMove());
     }
 
     private IEnumerator StartMove()
     {
-        while (transform.position != _spawner.EnemyList[0].transform.position)
+        while (_target != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _spawner.EnemyList[0].transform.position, _speed * Time.deltaTime);
+            if(Vector3.Distance(transform.position, _target.transform.position) < 0.5f)
+            { 
+                break; 
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
             yield return null;
         }
 
-        Debug.Log("111");
-        _spawner.EnemyList[0].TakeDamage(_damage);
+        if (_target != null)
+        {
+            _target.TakeDamage(_damage);
+        }
+
         Destroy(gameObject);
     }
 }

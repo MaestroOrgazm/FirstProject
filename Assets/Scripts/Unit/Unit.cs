@@ -30,7 +30,9 @@ public class Unit : MonoBehaviour
     private void FixedUpdate()
     {
         _currentTime -= Time.deltaTime;
-        Shoot();
+
+        if (gameObject.GetComponentInParent<SpawnPoint>())
+            Shoot();
 
         if (_isGround)
             _tmpText.text = $"Lvl. {_unitCard.Grade}";
@@ -78,11 +80,11 @@ public class Unit : MonoBehaviour
 
     private void Shoot()
     {
-        if (_currentTime <= 0)
+        if (_currentTime <= 0 && _spawner.EnemyList.Count > 0)
         {
             Bullet bullet = null;
             bullet = Instantiate(_bullet, transform.position, Quaternion.identity);
-            bullet.SetValue(_unitCard.Damage, _unitCard.BulletSpeed, _unitCard.ParticleSystem, _spawner);
+            bullet.SetValue(_unitCard.Damage, _unitCard.BulletSpeed, _unitCard.ParticleSystem, _spawner.EnemyList[0]);
             _currentTime = _unitCard.AttackSpeed;
         }
     }

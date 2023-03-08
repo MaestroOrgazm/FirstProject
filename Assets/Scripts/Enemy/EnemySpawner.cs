@@ -10,17 +10,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _spawnTime = 0.2f;
     [SerializeField] private float _randomDistanse = 3;
 
-    private int _chanceMediumEnemy = 34;
-    private int _chanceBigEnemy = 9;
+    private int _chanceMediumEnemy = 19;
+    private int _chanceBigEnemy = 4;
     private Transform _target;
-    private int _currentCount = 0;
     private int _maxChance = 80;
     private int _maxChanceBig = 55;
     private float _lastTime = 1;
     private Vector3 _randomPosition;
     private float _hightOffset = 0.1f;
 
-    public List<Enemy> EnemyList { get; private set; } = new();
+    public  List<Enemy> EnemyList { get; private set; } = new();
 
     private void Update()
     {
@@ -70,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
         Enemy enemy = null;
         _lastTime -= Time.deltaTime;
 
-        if (_currentCount < _countEnemy && _lastTime <= 0)
+        if (EnemyList.Count < _countEnemy && _lastTime <= 0)
         {
             int chance = Random.Range(0, 100);
             Vector3 instPoint = transform.position;
@@ -87,7 +86,6 @@ public class EnemySpawner : MonoBehaviour
             enemy.SetPath(_target, this);
             enemy.transform.eulerAngles = new Vector3(0,90,0);
             enemy.transform.SetParent(null);
-            _currentCount++;
             _lastTime = _spawnTime;
         }
     }

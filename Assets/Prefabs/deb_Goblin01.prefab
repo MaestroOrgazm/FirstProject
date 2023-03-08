@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _health: 50
-  _revard: 1
+  _revard: 5
 --- !u!65 &1445460580214349394
 BoxCollider:
   m_ObjectHideFlags: 0

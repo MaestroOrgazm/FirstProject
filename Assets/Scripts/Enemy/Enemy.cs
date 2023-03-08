@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     private Transform _target;
     private Coroutine _coroutine;
     private EnemySpawner _spawner;
+    private float _deley = 1;
+    private bool _isMoving = true;
 
     private void OnDisable()
     {
@@ -43,14 +45,16 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        _isMoving = false;
         Wallet.ChangeMoney(_revard);
         _animator.SetTrigger("Die");
         _spawner.DeleteEnemy(this);
+        Destroy(this.gameObject, _deley);
     }
 
     private IEnumerator MoveToHome()
     {
-        while (transform.position != _target.position)
+        while (transform.position != _target.position && _isMoving)
         {
             transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
