@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     private ParticleSystem _system;
     private float _speed;
     private float _damage;
+    private float _distance = 1f;
     private Coroutine _coroutine;
     private Enemy _target;
 
@@ -24,12 +25,12 @@ public class Bullet : MonoBehaviour
     {
         while (_target != null)
         {
-            if(Vector3.Distance(transform.position, _target.transform.position) < 0.5f)
-            { 
+            if(Vector3.Distance(transform.position, _target.TargetBullet.position) < _distance)
+            {
                 break; 
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _target.TargetBullet.position, _speed * Time.deltaTime);
             yield return null;
         }
 
@@ -37,7 +38,6 @@ public class Bullet : MonoBehaviour
         {
             _target.TakeDamage(_damage);
         }
-
         Destroy(gameObject);
     }
 }

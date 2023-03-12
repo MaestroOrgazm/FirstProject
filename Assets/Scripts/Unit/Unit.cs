@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private UnitCard _unitCard;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private TMP_Text _tmpText;
+    [SerializeField] private AudioSource _audioSource;
 
     private Unit _saveUnit;
     private EnemySpawner _spawner;
@@ -85,7 +86,8 @@ public class Unit : MonoBehaviour
             Bullet bullet = null;
             bullet = Instantiate(_bullet, transform.position, Quaternion.identity);
             bullet.SetValue(_unitCard.Damage, _unitCard.BulletSpeed, _unitCard.ParticleSystem, _spawner.EnemyList[0]);
-            _currentTime = _unitCard.AttackSpeed;
+            _currentTime = _unitCard.AttackSpeed; 
+            _audioSource.Play();  
         }
     }
 

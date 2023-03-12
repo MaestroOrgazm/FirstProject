@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Grade1
   m_EditorClassIdentifier: 
   _grade: 1
-  _price: 0
   _damage: 25
   _bulletSpeed: 5
-  _attackSpeed: 2
+  _attackSpeed: 1
   _particleSystem: {fileID: 198853902749890928, guid: 78e8b38d431ddef4fa2994a3f2d6e2ff, type: 3}
   _template: {fileID: 6705402075998324148, guid: 7b4d4c49fea1e1d4c92b7b3d72d6f760, type: 3}

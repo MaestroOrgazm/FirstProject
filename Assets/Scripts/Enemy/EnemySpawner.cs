@@ -17,11 +17,10 @@ public class EnemySpawner : MonoBehaviour
     private int _maxChanceBig = 55;
     private float _lastTime = 1;
     private Vector3 _randomPosition;
-    private float _hightOffset = 0.1f;
 
     public  List<Enemy> EnemyList { get; private set; } = new();
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_target != null)
             Spawn();
@@ -65,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        _randomPosition = new Vector3(0, _hightOffset, Random.Range(-_randomDistanse, _randomDistanse));
+        _randomPosition = new Vector3(0, 0, Random.Range(-_randomDistanse, _randomDistanse));
         Enemy enemy = null;
         _lastTime -= Time.deltaTime;
 

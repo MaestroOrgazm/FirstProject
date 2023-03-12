@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _speed = 6;
     [SerializeField] private float _health = 100;
     [SerializeField] private int _revard = 2;
+    [SerializeField] private Transform _targetBullet;
+    [SerializeField] private AudioSource _audioSource;
 
     private Animator _animator;
     private Transform _target;
@@ -16,6 +18,8 @@ public class Enemy : MonoBehaviour
     private EnemySpawner _spawner;
     private float _deley = 1;
     private bool _isMoving = true;
+
+    public Transform TargetBullet => _targetBullet;
 
     private void OnDisable()
     {
@@ -45,6 +49,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        _audioSource.Play();
         _isMoving = false;
         Wallet.ChangeMoney(_revard);
         _animator.SetTrigger("Die");
