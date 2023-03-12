@@ -70,6 +70,10 @@ MonoBehaviour:
     m_Localized: "Sald\u0131r\u0131ya +y\xFCzde 10"
     m_Metadata:
       m_Items: []
+  - m_Id: 21306480362246144
+    m_Localized: "S\u0131f\u0131rla"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

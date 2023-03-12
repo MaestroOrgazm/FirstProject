@@ -67,6 +67,10 @@ MonoBehaviour:
     m_Key: Attack bonus
     m_Metadata:
       m_Items: []
+  - m_Id: 21306480362246144
+    m_Key: reset
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

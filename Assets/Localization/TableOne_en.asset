@@ -70,6 +70,10 @@ MonoBehaviour:
     m_Localized: +10 percent to attack
     m_Metadata:
       m_Items: []
+  - m_Id: 21306480362246144
+    m_Localized: Reset
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

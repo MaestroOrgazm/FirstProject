@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class Wallet : MonoBehaviour
 {
+    [SerializeField] private AudioSource _MenuSound;
+
     private static string _strDimonds = "Dimonds";
     private static string _strIsUpgrade = "IsUpgrade";
     private static string _strAttackBonus = "AttackBonus";
@@ -27,6 +29,15 @@ public class Wallet : MonoBehaviour
 
         if (PlayerPrefs.GetInt(_strAttackBonus) == _boolTrue)
             SetAttackBonus();
+    }
+
+    public void Zero()
+    {
+        _MenuSound.Play();
+        PlayerPrefs.SetInt(_strIsUpgrade, 0);
+        PlayerPrefs.GetInt(_strAttackBonus, 0);
+        PlayerPrefs.SetInt(_strDimonds, 0);
+        ChangeDimonds(PlayerPrefs.GetInt(_strDimonds));
     }
 
     public static void ChangeMoney(int money)
