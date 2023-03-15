@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Wallet : MonoBehaviour
 {
@@ -34,10 +35,12 @@ public class Wallet : MonoBehaviour
     public void Zero()
     {
         _MenuSound.Play();
+        Level.SetLevelOne();
         PlayerPrefs.SetInt(_strIsUpgrade, 0);
         PlayerPrefs.GetInt(_strAttackBonus, 0);
         PlayerPrefs.SetInt(_strDimonds, 0);
         ChangeDimonds(PlayerPrefs.GetInt(_strDimonds));
+        SceneManager.LoadScene("Menu");
     }
 
     public static void ChangeMoney(int money)

@@ -74,6 +74,21 @@ MonoBehaviour:
     m_Localized: Reset
     m_Metadata:
       m_Items: []
+  - m_Id: 21916587710205952
+    m_Localized: 'Tutorial:
+
+      Buy new units by clicking on the buy button. Each
+      time the price will go up.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22305949581037568
+    m_Localized: 'Tutorial:
+
+      After buying, drag the unit onto another unit.
+      If their levels are equal, they will disappear and the next level unit will
+      appear. Good luck!'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

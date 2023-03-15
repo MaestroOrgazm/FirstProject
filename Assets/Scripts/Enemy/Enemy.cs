@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _revard = 2;
     [SerializeField] private Transform _targetBullet;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private ParticleSystem _system;
 
     private Animator _animator;
     private Transform _target;
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage (float damage)
     {
+        _system.Play();
         if (Wallet.AttackBonus)
             _health -= damage*Wallet.Percent;
         else

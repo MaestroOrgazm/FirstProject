@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using TMPro;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class BuyButton : MonoBehaviour
     [SerializeField] private TMP_Text _price = null;
 
     private int _intPrice;
+    private int _videoReward = 20;
 
     public void BuyCells()
     {
@@ -26,7 +28,7 @@ public class BuyButton : MonoBehaviour
 
     public void FreeVideo()
     {
-
+        Agava.YandexGames.InterstitialAd.Show(GameOff,GameOn);
     }
 
     private bool BuyItem()
@@ -47,5 +49,30 @@ public class BuyButton : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private void GameOff()
+    {
+        AudioListener.volume = 0;
+        Time.timeScale = 0;
+    }
+    private void GameOn(bool _isWatched)
+    {
+        if (_isWatched) 
+        {
+            Reward();
+            AudioListener.volume = 1;
+            Time.timeScale = 1;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+            Time.timeScale = 1;
+        }
+    }
+
+    private void Reward()
+    {
+        Wallet.ChangeDimonds(_videoReward);
     }
 }
