@@ -10,9 +10,10 @@ public class FinishLevel : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<Car>(out Car car))
         {
-            Agava.YandexGames.VideoAd.Show(GameOff, GameOn);
             Wallet.ChangeDimonds(_dimondReward);
             car.gameObject.GetComponent<Level>().LevelUp();
+            Leaderboard.SetScore(Wallet.Name, Level.CountLevel);
+            Agava.YandexGames.VideoAd.Show(GameOff, GameOn);
             SceneManager.LoadSceneAsync("Victory");
         }
     }

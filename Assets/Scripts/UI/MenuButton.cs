@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,15 +11,27 @@ public class MenuButton : MonoBehaviour
     [SerializeField] private GameObject _MenuPannel;
     [SerializeField] private AudioSource _MenuSound;
     [SerializeField] private Image _back;
+    [SerializeField] private TMP_Text _text;
 
     private float value = 0.005f;
     private Coroutine _coroutine;
+
+    private void Start()
+    {
+        _text.text = Wallet.Name;
+    }
 
     public void OpenSetting()
     {
         _SettingPannel.SetActive(true);
         _MenuPannel.SetActive(false);
         _MenuSound.Play();
+    }
+
+    public void ChangeName(string name)
+    {
+        Wallet.Name = name;
+        _text.text = name;
     }
 
     public void ChangeVolume(float volume)
@@ -55,9 +68,15 @@ public class MenuButton : MonoBehaviour
 
     public void LoadLevel()
     {
-        _MenuSound.Play();
         _back.raycastTarget = true;
+        _MenuSound.Play();
         _coroutine = StartCoroutine(StartBlackBack());
+    }
+
+    public void LoadLevelAfter()
+    {
+        SceneManager.LoadScene("Level");
+        Time.timeScale = 1;
     }
 
     private IEnumerator StartBlackBack()

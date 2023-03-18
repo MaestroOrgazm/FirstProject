@@ -16,13 +16,16 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        CountLevel += PlayerPrefs.GetInt(_strCountLevel);
-        _spawner.ChanceUp(CountLevel);
+        CountLevel = PlayerPrefs.GetInt(_strCountLevel);
+        
+        if (_spawner != null )
+            _spawner.ChanceUp(CountLevel);
     }
 
     public static void SetLevelOne()
     {
-        PlayerPrefs.SetInt(_strCountLevel, 0);
+        CountLevel = 1;
+        PlayerPrefs.SetInt(_strCountLevel, CountLevel);
     }
 
     public void StartTeleport(Transform target)

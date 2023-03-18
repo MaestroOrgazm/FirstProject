@@ -7,7 +7,7 @@ public class BuyButton : MonoBehaviour
     [SerializeField] private TMP_Text _price = null;
 
     private int _intPrice;
-    private int _videoReward = 20;
+    private int _videoReward = 5;
 
     public void BuyCells()
     {

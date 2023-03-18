@@ -11,6 +11,7 @@ public class Wallet : MonoBehaviour
     private static string _strAttackBonus = "AttackBonus";
     private static int _boolTrue = 1;
 
+    public static string Name = "Anonim";
     public static int Money { get; private set; } = 15;
     public static int Dimonds { get; private set; }
     public static bool IsUpgrade { get; private set; }
@@ -37,9 +38,9 @@ public class Wallet : MonoBehaviour
         _MenuSound.Play();
         Level.SetLevelOne();
         PlayerPrefs.SetInt(_strIsUpgrade, 0);
-        PlayerPrefs.GetInt(_strAttackBonus, 0);
+        PlayerPrefs.SetInt(_strAttackBonus, 0);
         PlayerPrefs.SetInt(_strDimonds, 0);
-        ChangeDimonds(PlayerPrefs.GetInt(_strDimonds));
+        SetDimonds(PlayerPrefs.GetInt(_strDimonds));
         SceneManager.LoadScene("Menu");
     }
 
@@ -54,6 +55,11 @@ public class Wallet : MonoBehaviour
         Dimonds += dimonds;
         DimondsChanged?.Invoke(Dimonds);
         PlayerPrefs.SetInt(_strDimonds, Dimonds);
+    }
+    public static void SetDimonds(int dimonds)
+    {
+        Dimonds = dimonds;
+        DimondsChanged?.Invoke(Dimonds);
     }
 
     public static void SetUpgrade()

@@ -85,6 +85,14 @@ MonoBehaviour:
       ve bir sonraki seviye birimi g\xF6r\xFCnecektir. \u0130yi \u015Fanlar!"
     m_Metadata:
       m_Items: []
+  - m_Id: 23361244205928448
+    m_Localized: "Liderler S\u0131ralamas\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23363472530591744
+    m_Localized: "Ad\u0131n\u0131z:"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
