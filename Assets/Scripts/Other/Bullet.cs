@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     private ParticleSystem _system;
     private float _speed;
     private float _damage;
-    private float _distance = 1f;
+    private float _distance = 1.1f;
     private Coroutine _coroutine;
     private Enemy _target;
 
