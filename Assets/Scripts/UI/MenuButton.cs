@@ -49,12 +49,6 @@ public class MenuButton : MonoBehaviour
         _MenuSound.Play();
     }
 
-    public void OK()
-    {
-        _MenuPannel.SetActive(true);
-        _okButton.SetActive(false);
-    }
-
     public void ChangeName(string name)
     {
         Wallet.Name = name;

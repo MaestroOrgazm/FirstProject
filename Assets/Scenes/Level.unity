@@ -1718,6 +1718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModulTwo (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8909126671361155468, guid: 3c8a842d8c11e834fadfb4826b27fb40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -26.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c8a842d8c11e834fadfb4826b27fb40, type: 3}
 --- !u!1001 &149623632
@@ -16969,6 +16973,10 @@ PrefabInstance:
     - target: {fileID: 6998743647570474080, guid: 7bd88424220c0a54c8b8ce95e5c864a8, type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906495521108217936, guid: 7bd88424220c0a54c8b8ce95e5c864a8, type: 3}
+      propertyPath: _randomDistanse
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bd88424220c0a54c8b8ce95e5c864a8, type: 3}

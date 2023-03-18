@@ -12,7 +12,7 @@ public class Wallet : MonoBehaviour
     private static int _boolTrue = 1;
 
     public static string Name;
-    public static int Money { get; private set; } = 15;
+    public static int Money { get; private set; }
     public static int Dimonds { get; private set; }
     public static bool IsUpgrade { get; private set; }
     public static bool AttackBonus { get; private set; }
@@ -24,16 +24,20 @@ public class Wallet : MonoBehaviour
 
     private void OnEnable()
     {
-        Agava.YandexGames.PlayerAccount.GetProfileData((result) =>
+        Money = 15;
+        //Agava.YandexGames.Leaderboard.SetScore(Wallet.Name, Level.CountLevel);
+        if (Name == null)
         {
-            Name = result.uniqueID.ToString();
-        });
-        Agava.YandexGames.Leaderboard.SetScore(Wallet.Name, Level.CountLevel);
+            Agava.YandexGames.PlayerAccount.GetProfileData((result) =>
+            {
+                Name = result.uniqueID.ToString();
+            });
+        }
     }
 
     private void Start()
     {
-        ChangeDimonds(PlayerPrefs.GetInt(_strDimonds));
+        SetDimonds(PlayerPrefs.GetInt(_strDimonds));
 
         if (PlayerPrefs.GetInt(_strIsUpgrade) == _boolTrue)
             SetUpgrade();
