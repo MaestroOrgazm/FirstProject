@@ -9,6 +9,9 @@ public class MenuButton : MonoBehaviour
     [SerializeField] private GameObject _SettingPannel;
     [SerializeField] private GameObject _ShopPannel;
     [SerializeField] private GameObject _MenuPannel;
+    [SerializeField] private GameObject _okButton;
+    [SerializeField] private GameObject _LeaderPannel;
+    [SerializeField] private GameObject _NamePannel;
     [SerializeField] private AudioSource _MenuSound;
     [SerializeField] private Image _back;
     [SerializeField] private TMP_Text _text;
@@ -18,14 +21,38 @@ public class MenuButton : MonoBehaviour
 
     private void Start()
     {
-        _text.text = Wallet.Name;
+        if (_text != null)
+            _text.text = Wallet.Name;
     }
 
     public void OpenSetting()
     {
+        _NamePannel.SetActive(false);
         _SettingPannel.SetActive(true);
         _MenuPannel.SetActive(false);
         _MenuSound.Play();
+    }
+
+    public void OpenLeaderboard()
+    {
+        _NamePannel.SetActive(false);
+        _MenuPannel.SetActive(false);
+        _LeaderPannel.SetActive(true);
+        _MenuSound.Play();
+    }
+
+    public void CloseLeaderbord()
+    {
+        _NamePannel.SetActive(true);
+        _MenuPannel.SetActive(true);
+        _LeaderPannel.SetActive(false);
+        _MenuSound.Play();
+    }
+
+    public void OK()
+    {
+        _MenuPannel.SetActive(true);
+        _okButton.SetActive(false);
     }
 
     public void ChangeName(string name)
@@ -41,6 +68,7 @@ public class MenuButton : MonoBehaviour
 
     public void ExitSetting()
     {
+        _NamePannel.SetActive(true);
         _SettingPannel.SetActive(false);
         _MenuPannel.SetActive(true);
         _MenuSound.Play();
@@ -48,6 +76,7 @@ public class MenuButton : MonoBehaviour
 
     public void OpenShop()
     {
+        _NamePannel.SetActive(false);
         _ShopPannel.SetActive(true);
         _MenuPannel.SetActive(false);
         _MenuSound.Play();
@@ -55,6 +84,7 @@ public class MenuButton : MonoBehaviour
 
     public void ExitShop()
     {
+        _NamePannel.SetActive(true);
         _ShopPannel.SetActive(false);
         _MenuPannel.SetActive(true);
         _MenuSound.Play();

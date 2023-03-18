@@ -10,12 +10,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _spawnTime = 0.2f;
     [SerializeField] private float _randomDistanse = 3;
 
-    private int _chanceMediumEnemy = 19;
-    private int _chanceBigEnemy = 4;
+    private float _chanceMediumEnemy = 20;
+    private float _chanceBigEnemy = 9;
+    private int _delataMedium = 2;
+    private int _deltaBig = 4;
     private Transform _target;
-    private int _maxChance = 80;
-    private int _maxChanceBig = 55;
+    private int _maxChance = 1;
+    private int _maxChanceBig = 2;
     private float _lastTime = 1;
+    private float _allCount = 1;
     private Vector3 _randomPosition;
 
     public  List<Enemy> EnemyList { get; private set; } = new();
@@ -38,10 +41,11 @@ public class EnemySpawner : MonoBehaviour
 
     public void ChanceUp(int countLevel)
     {
-        if (_chanceMediumEnemy < _maxChance)
+
+        if (_chanceMediumEnemy > _maxChance && _chanceBigEnemy > _maxChanceBig)
         {
-            _chanceBigEnemy += countLevel;
-            _chanceMediumEnemy += countLevel;
+            _chanceBigEnemy -= countLevel/_deltaBig;
+            _chanceMediumEnemy -= countLevel/_delataMedium;
         }
         else
         {
@@ -70,17 +74,17 @@ public class EnemySpawner : MonoBehaviour
 
         if (EnemyList.Count < _countEnemy && _lastTime <= 0)
         {
-            int chance = Random.Range(0, 100);
             Vector3 instPoint = transform.position;
             instPoint += _randomPosition;
 
-            if (chance <= _chanceBigEnemy)
+            if (_allCount % _chanceMediumEnemy == 0)
                 enemy = Instantiate(_bigEnemy, instPoint, Quaternion.identity);
-            else if (chance <= _chanceMediumEnemy)
+            else if (_allCount % _chanceBigEnemy == 0)
                 enemy = Instantiate(_mediumEnemy, instPoint, Quaternion.identity);
             else
                 enemy = Instantiate(_smallEnemy, instPoint, Quaternion.identity);
 
+            _allCount++;
             EnemyList.Add(enemy);
             enemy.SetPath(_target, this);
             enemy.transform.eulerAngles = new Vector3(0,90,0);

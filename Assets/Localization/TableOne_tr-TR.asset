@@ -93,6 +93,10 @@ MonoBehaviour:
     m_Localized: "Ad\u0131n\u0131z:"
     m_Metadata:
       m_Items: []
+  - m_Id: 23544259578155008
+    m_Localized: "S\u0131ralaman\u0131z:"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

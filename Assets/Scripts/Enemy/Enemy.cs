@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private EnemySpawner _spawner;
     private float _deley = 1;
     private bool _isMoving = true;
+    private bool _isDie;
 
     public Transform TargetBullet => _targetBullet;
 
@@ -45,12 +46,13 @@ public class Enemy : MonoBehaviour
         else
             _health -= damage;
 
-        if (_health <= 0)
+        if (_health <= 0 && !_isDie)
             Die();
     }
 
     private void Die()
     {
+        _isDie = true;
         _audioSource.Play();
         _isMoving = false;
         Wallet.ChangeMoney(_revard);

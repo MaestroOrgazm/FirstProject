@@ -12,7 +12,7 @@ public class FinishLevel : MonoBehaviour
         {
             Wallet.ChangeDimonds(_dimondReward);
             car.gameObject.GetComponent<Level>().LevelUp();
-            Leaderboard.SetScore(Wallet.Name, Level.CountLevel);
+            Agava.YandexGames.Leaderboard.SetScore(Wallet.Name, Level.CountLevel, null, null, Wallet.Name);
             Agava.YandexGames.VideoAd.Show(GameOff, GameOn);
             SceneManager.LoadSceneAsync("Victory");
         }
@@ -23,6 +23,7 @@ public class FinishLevel : MonoBehaviour
         AudioListener.volume = 0;
         Time.timeScale = 0;
     }
+
     private void GameOn()
     {
         AudioListener.volume = 1;

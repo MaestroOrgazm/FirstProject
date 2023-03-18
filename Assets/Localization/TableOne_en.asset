@@ -97,6 +97,10 @@ MonoBehaviour:
     m_Localized: 'You name:'
     m_Metadata:
       m_Items: []
+  - m_Id: 23544259578155008
+    m_Localized: 'You rank:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

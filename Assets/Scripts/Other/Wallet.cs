@@ -11,7 +11,7 @@ public class Wallet : MonoBehaviour
     private static string _strAttackBonus = "AttackBonus";
     private static int _boolTrue = 1;
 
-    public static string Name = "Anonim";
+    public static string Name;
     public static int Money { get; private set; } = 15;
     public static int Dimonds { get; private set; }
     public static bool IsUpgrade { get; private set; }
@@ -21,6 +21,15 @@ public class Wallet : MonoBehaviour
 
     public static event UnityAction<int> MoneyChanged;
     public static event UnityAction<int> DimondsChanged;
+
+    private void OnEnable()
+    {
+        Agava.YandexGames.PlayerAccount.GetProfileData((result) =>
+        {
+            Name = result.uniqueID.ToString();
+        });
+        Agava.YandexGames.Leaderboard.SetScore(Wallet.Name, Level.CountLevel);
+    }
 
     private void Start()
     {

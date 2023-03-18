@@ -9,14 +9,14 @@ public class Level : MonoBehaviour
     [SerializeField] private Transform _teleportTarget;
 
     private static string _strCountLevel = "CountLevel";
-    public static int CountLevel { get; private set; } = 1;
+    public static int CountLevel { get; private set; } = 0;
 
     private int _count = 0;
     private float _value;
 
     private void Start()
     {
-        CountLevel = PlayerPrefs.GetInt(_strCountLevel);
+        CountLevel = PlayerPrefs.GetInt(_strCountLevel) + 1;
         
         if (_spawner != null )
             _spawner.ChanceUp(CountLevel);
@@ -24,7 +24,7 @@ public class Level : MonoBehaviour
 
     public static void SetLevelOne()
     {
-        CountLevel = 1;
+        CountLevel = 0;
         PlayerPrefs.SetInt(_strCountLevel, CountLevel);
     }
 
