@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            Agava.YandexGames.VideoAd.Show(GameOff, GameOn);
+            //Agava.YandexGames.VideoAd.Show(GameOff, GameOn);
             SceneManager.LoadScene("Over");
         }
     }

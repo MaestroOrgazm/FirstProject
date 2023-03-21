@@ -55,6 +55,16 @@ public class MenuButton : MonoBehaviour
         _text.text = name;
     }
 
+    public void OnSelect()
+    {
+        _text.text = "";
+    }
+
+    public void OnEndSelect()
+    {
+        _text.text = Wallet.Name;
+    }
+
     public void ChangeVolume(float volume)
     {
         AudioListener.volume = volume;

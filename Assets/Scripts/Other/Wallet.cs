@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Wallet : MonoBehaviour
 {
-    [SerializeField] private AudioSource _MenuSound;
+    [SerializeField] private AudioSource _MenuSound = null;
 
     private static string _strDimonds = "Dimonds";
     private static string _strIsUpgrade = "IsUpgrade";
@@ -12,6 +12,7 @@ public class Wallet : MonoBehaviour
     private static int _boolTrue = 1;
 
     public static string Name;
+    public static int DeltaMoney { get; private set; } = 15;
     public static int Money { get; private set; }
     public static int Dimonds { get; private set; }
     public static bool IsUpgrade { get; private set; }
@@ -22,10 +23,10 @@ public class Wallet : MonoBehaviour
     public static event UnityAction<int> MoneyChanged;
     public static event UnityAction<int> DimondsChanged;
 
-    private void OnEnable()
+    private void Awake()
     {
-        Money = 15;
-        //Agava.YandexGames.Leaderboard.SetScore(Wallet.Name, Level.CountLevel);
+        Money = DeltaMoney;
+
         if (Name == null)
         {
             Agava.YandexGames.PlayerAccount.GetProfileData((result) =>

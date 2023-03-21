@@ -85,7 +85,8 @@ public class Unit : MonoBehaviour
         {
             Bullet bullet = null;
             bullet = Instantiate(_bullet, transform.position, Quaternion.identity);
-            bullet.SetValue(_unitCard.Damage, _unitCard.BulletSpeed, _unitCard.ParticleSystem, _spawner.EnemyList[0]);
+            Debug.Log(bullet.transform.position);
+            bullet.Initialize(_unitCard.Damage, _unitCard.BulletSpeed, _unitCard.ParticleSystem, _spawner.EnemyList[0]);
             _currentTime = _unitCard.AttackSpeed; 
             _audioSource.Play();  
         }

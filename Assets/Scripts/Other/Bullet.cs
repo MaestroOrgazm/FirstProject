@@ -6,11 +6,9 @@ public class Bullet : MonoBehaviour
     private ParticleSystem _system;
     private float _speed;
     private float _damage;
-    private float _distance = 1.1f;
-    private Coroutine _coroutine;
     private Enemy _target;
 
-    public void SetValue(float damage, float speed, ParticleSystem system, Enemy enemy)
+    public void Initialize(float damage, float speed, ParticleSystem system, Enemy enemy)
     {
         _damage = damage;
         _speed = speed;
@@ -18,26 +16,26 @@ public class Bullet : MonoBehaviour
         _target = enemy;
         Instantiate(_system, transform);
         _system.Play();
-        _coroutine = StartCoroutine(StartMove());
     }
 
-    private IEnumerator StartMove()
+    private void FixedUpdate()
     {
-        while (_target != null)
-        {
-            if(Vector3.Distance(transform.position, _target.TargetBullet.position) < _distance)
-            {
-                break; 
-            }
-
-            transform.position = Vector3.MoveTowards(transform.position, _target.TargetBullet.position, _speed * Time.deltaTime);
-            yield return null;
-        }
-
         if (_target != null)
         {
-            _target.TakeDamage(_damage);
+            transform.position = Vector3.MoveTowards(transform.position, _target.TargetBullet.transform.position, _speed*Time.deltaTime);
         }
-        Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemy)) 
+        { 
+            enemy.TakeDamage(_damage);
+            Destroy(gameObject);
+        }
     }
 }

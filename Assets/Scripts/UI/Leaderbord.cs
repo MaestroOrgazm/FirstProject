@@ -13,22 +13,21 @@ public class Leaderbord : MonoBehaviour
 
     private void Start()
     {
-        //Agava.YandexGames.Leaderboard.SetScore(Wallet.Name, Level.CountLevel, null, null, Wallet.Name);
-        //Agava.YandexGames.Leaderboard.GetEntries(Wallet.Name, (result) =>
-        //{
-        //    _myRank.text = result.userRank.ToString();
+        Agava.YandexGames.Leaderboard.GetEntries(Wallet.Name, (result) =>
+        {
+            _myRank.text = result.userRank.ToString();
 
-        //    if (_maxCount > _currentcount)
-        //    {
-        //        foreach (var entry in result.entries)
-        //        {
-        //            string name = entry.extraData;
-        //            _AllTable.text = (_currentcount + ". " + name + " - " + entry.score);
-        //            _currentcount++;
-        //        }
-        //    }
+            if (_maxCount > _currentcount)
+            {
+                foreach (var entry in result.entries)
+                {
+                    string name = entry.extraData;
+                    _AllTable.text += (_currentcount + ". " + name + " - " + entry.score + "/n");
+                    _currentcount++;
+                }
+            }
 
-        //});
+        });
     }
 
 }
