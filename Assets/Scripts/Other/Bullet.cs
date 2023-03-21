@@ -4,22 +4,21 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private ParticleSystem _system;
-    private float _speed;
+    private float _speed = 25;
     private float _damage;
     private Enemy _target;
 
-    public void Initialize(float damage, float speed, ParticleSystem system, Enemy enemy)
+    public void Initialize(float damage, ParticleSystem system, Enemy enemy)
     {
         _damage = damage;
-        _speed = speed;
-        _system = system;
         _target = enemy;
+        _system = system;
         Instantiate(_system, transform);
         _system.Play();
     }
 
     private void FixedUpdate()
-    {
+    { 
         if (_target != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, _target.TargetBullet.transform.position, _speed*Time.deltaTime);

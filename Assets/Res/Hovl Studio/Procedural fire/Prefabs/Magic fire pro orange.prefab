@@ -19346,7 +19346,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1725317912486240}
   serializedVersion: 8
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 5
   stopAction: 0
   cullingMode: 1
   ringBufferMode: 0
@@ -20171,7 +20171,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4.5
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -20224,7 +20224,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 30
       minScalar: 0
       maxCurve:
         serializedVersion: 2

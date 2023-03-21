@@ -5,7 +5,7 @@ public class LevelPannel : MonoBehaviour
 {
     [SerializeField] private TMP_Text _count;
 
-    private void Start()
+    private void OnEnable()
     {
         _count.text = Level.CountLevel.ToString();
     }

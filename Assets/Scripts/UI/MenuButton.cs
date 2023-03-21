@@ -12,6 +12,8 @@ public class MenuButton : MonoBehaviour
     [SerializeField] private GameObject _okButton;
     [SerializeField] private GameObject _LeaderPannel;
     [SerializeField] private GameObject _NamePannel;
+    [SerializeField] private GameObject _keyPannel;
+    [SerializeField] private GameObject _okPannel;
     [SerializeField] private AudioSource _MenuSound;
     [SerializeField] private Image _back;
     [SerializeField] private TMP_Text _text;
@@ -58,11 +60,17 @@ public class MenuButton : MonoBehaviour
     public void OnSelect()
     {
         _text.text = "";
+        _MenuPannel.SetActive(false);
+        _keyPannel.SetActive(true);
+        _okPannel.SetActive(true);
     }
 
-    public void OnEndSelect()
+    public void Ok()
     {
         _text.text = Wallet.Name;
+        _MenuPannel.SetActive(true);
+        _keyPannel.SetActive(false);
+        _okPannel.SetActive(false);
     }
 
     public void ChangeVolume(float volume)

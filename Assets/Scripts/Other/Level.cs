@@ -16,7 +16,8 @@ public class Level : MonoBehaviour
 
     private void OnEnable()
     {
-        CountLevel = PlayerPrefs.GetInt(_strCountLevel);
+        if (CountLevel > 1)
+            CountLevel = PlayerPrefs.GetInt(_strCountLevel);
         
         if (_spawner != null )
             _spawner.ChanceUp(CountLevel);
