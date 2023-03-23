@@ -13,7 +13,7 @@ public class Leaderbord : MonoBehaviour
 
     private void Start()
     {
-        Agava.YandexGames.Leaderboard.GetEntries(Wallet.Name, (result) =>
+        Agava.YandexGames.Leaderboard.GetEntries("IoM", (result) =>
         {
             _myRank.text = result.userRank.ToString();
 
@@ -22,12 +22,17 @@ public class Leaderbord : MonoBehaviour
                 foreach (var entry in result.entries)
                 {
                     string name = entry.extraData;
-                    _AllTable.text += (_currentcount + ". " + name + " - " + entry.score + "/n");
+                    _AllTable.text += (_currentcount + ". " + name + " - " + entry.score + "\n");
                     _currentcount++;
                 }
             }
 
         });
+    }
+
+    public void SetScore()
+    {
+        Agava.YandexGames.Leaderboard.SetScore("IoM", Level.CountLevel, null, null, Wallet.Name);
     }
 
 }

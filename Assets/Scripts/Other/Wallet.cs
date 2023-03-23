@@ -11,7 +11,7 @@ public class Wallet : MonoBehaviour
     private static string _strAttackBonus = "AttackBonus";
     private static int _boolTrue = 1;
 
-    public static string Name;
+    public static string Name = "Anonim";
     public static int DeltaMoney { get; private set; } = 15;
     public static int Money { get; private set; }
     public static int Dimonds { get; private set; }
@@ -19,21 +19,12 @@ public class Wallet : MonoBehaviour
     public static bool AttackBonus { get; private set; }
     public static float Percent { get; private set; } = 1.1f;
 
-
     public static event UnityAction<int> MoneyChanged;
     public static event UnityAction<int> DimondsChanged;
 
     private void Awake()
     {
         Money = DeltaMoney;
-
-        if (Name == null)
-        {
-            Agava.YandexGames.PlayerAccount.GetProfileData((result) =>
-            {
-                Name = result.uniqueID.ToString();
-            });
-        }
     }
 
     private void Start()

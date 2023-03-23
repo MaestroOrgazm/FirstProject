@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
 
     public void AddLetter(string letter)
     {
-        textBox.text = textBox.text + letter;
+        if (textBox.text.Length < textBox.characterLimit)
+            textBox.text = textBox.text + letter;
     }
 
     public void SubmitWord()
