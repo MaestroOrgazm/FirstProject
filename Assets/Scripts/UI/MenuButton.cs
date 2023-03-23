@@ -15,9 +15,16 @@ public class MenuButton : MonoBehaviour
     [SerializeField] private AudioSource _MenuSound;
     [SerializeField] private Image _back;
     [SerializeField] private TMP_InputField _text;
+    [SerializeField] private TMP_Text _placeholder;
 
     private float value = 0.005f;
     private Coroutine _coroutine;
+
+    private void Start()
+    {
+        if(_placeholder != null)
+        _placeholder.text = Wallet.Name;
+    }
 
     public void OpenSetting()
     {
@@ -47,6 +54,7 @@ public class MenuButton : MonoBehaviour
     {
         Wallet.Name = name;
         _text.text = name;
+        _placeholder.text = Wallet.Name;
     }
 
     public void OnSelect()

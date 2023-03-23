@@ -8,11 +8,12 @@ public class Leaderbord : MonoBehaviour
     [SerializeField] private TMP_Text _myRank;
     [SerializeField] private TMP_Text _AllTable;
 
-    private int _maxCount = 11;
+    private int _maxCount = 10;
     private int _currentcount = 1;
 
-    private void Start()
+    public void SetScore()
     {
+        Agava.YandexGames.Leaderboard.SetScore("IoM", Level.CountLevel, null, null, Wallet.Name);
         Agava.YandexGames.Leaderboard.GetEntries("IoM", (result) =>
         {
             _myRank.text = result.userRank.ToString();
@@ -29,10 +30,4 @@ public class Leaderbord : MonoBehaviour
 
         });
     }
-
-    public void SetScore()
-    {
-        Agava.YandexGames.Leaderboard.SetScore("IoM", Level.CountLevel, null, null, Wallet.Name);
-    }
-
 }

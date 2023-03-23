@@ -14,7 +14,6 @@ public class Unit : MonoBehaviour
     private Unit _saveUnit;
     private EnemySpawner _spawner;
     private float _currentTime = 0;
-    private bool _isGround = true;
 
     public SpawnPoint Point { get; private set; }
 
@@ -35,7 +34,7 @@ public class Unit : MonoBehaviour
         if (gameObject.GetComponentInParent<SpawnPoint>())
             Shoot();
 
-        if (_isGround)
+        if (gameObject.GetComponentInParent<SpawnPoint>())
             _tmpText.text = $"Lvl. {_unitCard.Grade}";
         else
             _tmpText.text = null;
@@ -69,11 +68,6 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public void GroundChange()
-    {
-        _isGround = !_isGround;
-    }
-
     public void SetSpawner(EnemySpawner enemySpawner)
     {
         _spawner = enemySpawner;
@@ -85,7 +79,6 @@ public class Unit : MonoBehaviour
         {
             Bullet bullet = null;
             bullet = Instantiate(_bullet, transform.position, Quaternion.identity);
-            Debug.Log(bullet.transform.position);
             bullet.Initialize(_unitCard.Damage, _unitCard.ParticleSystem, _spawner.EnemyList[0]);
             _currentTime = _unitCard.AttackSpeed; 
             _audioSource.Play();  

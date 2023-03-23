@@ -17497,6 +17497,7 @@ MonoBehaviour:
   _MenuSound: {fileID: 1413478408}
   _back: {fileID: 1198162431}
   _text: {fileID: 624974344}
+  _placeholder: {fileID: 1936610455}
 --- !u!114 &1413478406
 MonoBehaviour:
   m_ObjectHideFlags: 0

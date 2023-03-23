@@ -30,7 +30,6 @@ public class UnitDrag : MonoBehaviour
         Dragging = true;
         OnDragging?.Invoke(Dragging);
         _collider.isTrigger = false;
-        gameObject.GetComponent<Unit>().GroundChange();
     }
 
     private void OnMouseUp()
@@ -38,7 +37,6 @@ public class UnitDrag : MonoBehaviour
         Dragging = false;
         OnDragging?.Invoke(Dragging);
         _collider.isTrigger = true;
-        gameObject.GetComponent<Unit>().GroundChange();
 
         if (!_combining)
         {
