@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 13
-  _health: 100
+  _health: 150
   _revard: 15
   _targetBullet: {fileID: 4299234402114476446}
   _audioSource: {fileID: 4960521266875636684}

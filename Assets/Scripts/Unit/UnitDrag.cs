@@ -15,7 +15,7 @@ public class UnitDrag : MonoBehaviour
     public bool Dragging { get; private set; }
     public Unit Unit { get; private set; }
 
-    public event Action<bool> OnDragging;
+    public event Action OnDragging;
 
     private void Start()
     {
@@ -28,18 +28,18 @@ public class UnitDrag : MonoBehaviour
         transform.localScale = _dragScale;
         _savePosition = transform.localPosition;
         Dragging = true;
-        OnDragging?.Invoke(Dragging);
+        OnDragging?.Invoke();
         _collider.isTrigger = false;
     }
 
     private void OnMouseUp()
     {
         Dragging = false;
-        OnDragging?.Invoke(Dragging);
+        OnDragging?.Invoke();
         _collider.isTrigger = true;
 
         if (!_combining)
-        {
+        {=
             transform.localPosition = _savePosition;
             transform.localScale = _defaultScale;
         }

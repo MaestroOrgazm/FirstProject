@@ -1,3 +1,4 @@
+using System.Drawing;
 using TMPro;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class Unit : MonoBehaviour
     private Unit _saveUnit;
     private EnemySpawner _spawner;
     private float _currentTime = 0;
+    private SpawnPoint _spawnPoint;
 
     public SpawnPoint Point { get; private set; }
 
@@ -54,6 +56,17 @@ public class Unit : MonoBehaviour
                 }
             }
         }
+        else if (collider.gameObject.TryGetComponent<Box>(out Box box))
+        {
+            _spawnPoint = box.gameObject.GetComponentInParent<SpawnPoint>();
+            if (_spawnPoint != null)
+            {
+                if (_spawnPoint.IsEmployed)
+                {
+                    this.Drag.OnDragging += ChangeCell;
+                }
+            }
+        }    
     }
 
     private void OnTriggerExit(Collider collider)
@@ -65,6 +78,10 @@ public class Unit : MonoBehaviour
                 unit.Drag.OnDragging -= DragEnd;
                 _saveUnit = null;
             }
+        }
+        else if (collider.gameObject.TryGetComponent(out Box box))
+        {
+            this.Drag.OnDragging -= ChangeCell;
         }
     }
 
@@ -85,12 +102,17 @@ public class Unit : MonoBehaviour
         }
     }
 
-    private void DragEnd(bool drag)
+    private void DragEnd()
     {
         Drag.ChangeCombineValue();
         Instantiate(_nextCard.Tamplate, Point.transform).GetComponent<Unit>().SetSpawner(_spawner);
         _saveUnit.Point.ChangeValue();
         Destroy(_saveUnit.gameObject);
         Destroy(this.gameObject);
+    }
+
+    private void ChangeCell()
+    {
+        transform.SetParent(_spawnPoint.gameObject.transform);
     }
 }

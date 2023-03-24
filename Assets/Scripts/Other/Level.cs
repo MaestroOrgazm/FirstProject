@@ -11,7 +11,7 @@ public class Level : MonoBehaviour
     private static string _strCountLevel = "CountLevel";
     public static int CountLevel { get; private set; } = 1;
 
-    private int _count = 0;
+    private int _count = 1;
     private float _value;
 
     private void OnEnable()

@@ -28,7 +28,7 @@ public class BuyButton : MonoBehaviour
 
     public void FreeVideo()
     {
-        Agava.YandexGames.InterstitialAd.Show(GameOff,GameOn);
+        Agava.YandexGames.VideoAd.Show(GameOff,Reward, GameOn);
     }
 
     private bool BuyItem()
@@ -56,19 +56,10 @@ public class BuyButton : MonoBehaviour
         AudioListener.volume = 0;
         Time.timeScale = 0;
     }
-    private void GameOn(bool _isWatched)
+    private void GameOn()
     {
-        if (_isWatched) 
-        {
-            Reward();
             AudioListener.volume = 1;
             Time.timeScale = 1;
-        }
-        else
-        {
-            AudioListener.volume = 1;
-            Time.timeScale = 1;
-        }
     }
 
     private void Reward()
