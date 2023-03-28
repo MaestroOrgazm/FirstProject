@@ -15,7 +15,6 @@ public class Unit : MonoBehaviour
     private Unit _saveUnit;
     private EnemySpawner _spawner;
     private float _currentTime = 0;
-    private SpawnPoint _spawnPoint;
 
     public SpawnPoint Point { get; private set; }
 
@@ -55,18 +54,7 @@ public class Unit : MonoBehaviour
                     unit.Drag.OnDragging += DragEnd;
                 }
             }
-        }
-        else if (collider.gameObject.TryGetComponent<Box>(out Box box))
-        {
-            _spawnPoint = box.gameObject.GetComponentInParent<SpawnPoint>();
-            if (_spawnPoint != null)
-            {
-                if (_spawnPoint.IsEmployed)
-                {
-                    this.Drag.OnDragging += ChangeCell;
-                }
-            }
-        }    
+        }  
     }
 
     private void OnTriggerExit(Collider collider)
@@ -78,10 +66,6 @@ public class Unit : MonoBehaviour
                 unit.Drag.OnDragging -= DragEnd;
                 _saveUnit = null;
             }
-        }
-        else if (collider.gameObject.TryGetComponent(out Box box))
-        {
-            this.Drag.OnDragging -= ChangeCell;
         }
     }
 
@@ -109,10 +93,5 @@ public class Unit : MonoBehaviour
         _saveUnit.Point.ChangeValue();
         Destroy(_saveUnit.gameObject);
         Destroy(this.gameObject);
-    }
-
-    private void ChangeCell()
-    {
-        transform.SetParent(_spawnPoint.gameObject.transform);
     }
 }

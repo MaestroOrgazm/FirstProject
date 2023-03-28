@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15521930315026432
-    m_Localized: "Sald\u0131r\u0131ya +y\xFCzde 10"
+    m_Localized: "Sald\u0131r\u0131ya \n+y\xFCzde 10"
     m_Metadata:
       m_Items: []
   - m_Id: 21306480362246144
@@ -95,6 +95,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 23544259578155008
     m_Localized: "S\u0131ralaman\u0131z:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26676545815302144
+    m_Localized: "Canavar \n\u0130stilas\u0131"
     m_Metadata:
       m_Items: []
   references:

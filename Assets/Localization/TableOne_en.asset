@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15521930315026432
-    m_Localized: +10 percent to attack
+    m_Localized: "+10 percent \nto attack"
     m_Metadata:
       m_Items: []
   - m_Id: 21306480362246144
@@ -99,6 +99,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 23544259578155008
     m_Localized: 'You rank:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26676545815302144
+    m_Localized: "Invasion \nof \nmonsters"
     m_Metadata:
       m_Items: []
   references:

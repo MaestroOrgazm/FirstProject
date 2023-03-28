@@ -15,20 +15,7 @@ public class FinishLevel : MonoBehaviour
             _isFinish = true;
             Wallet.ChangeDimonds(_dimondReward);
             car.gameObject.GetComponent<Level>().LevelUp(); 
-            Agava.YandexGames.InterstitialAd.Show(GameOff, GameOn);
             SceneManager.LoadSceneAsync("Victory");
         }
-    }
-
-    private void GameOff()
-    {
-        AudioListener.volume = 0;
-        Time.timeScale = 0;
-    }
-
-    private void GameOn(bool isbool)
-    {
-        AudioListener.volume = 1;
-        Time.timeScale = 1;
     }
 }

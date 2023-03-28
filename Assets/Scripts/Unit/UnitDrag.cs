@@ -39,7 +39,7 @@ public class UnitDrag : MonoBehaviour
         _collider.isTrigger = true;
 
         if (!_combining)
-        {=
+        {
             transform.localPosition = _savePosition;
             transform.localScale = _defaultScale;
         }
