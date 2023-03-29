@@ -13,6 +13,7 @@ public class MenuButton : MonoBehaviour
     [SerializeField] private GameObject _NamePannel;
     [SerializeField] private GameObject _keyPannel;
     [SerializeField] private AudioSource _MenuSound;
+    [SerializeField] private Slider _slider;
     [SerializeField] private Image _back;
     [SerializeField] private TMP_InputField _text;
     [SerializeField] private TMP_Text _placeholder;
@@ -24,6 +25,9 @@ public class MenuButton : MonoBehaviour
     {
         if(_placeholder != null)
         _placeholder.text = Wallet.Name;
+
+        if (_slider != null)
+            _slider.value = AudioListener.volume;
     }
 
     public void OpenSetting()

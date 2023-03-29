@@ -5,6 +5,7 @@ using UnityEngine;
 public class TutorialPannel : MonoBehaviour
 {
     [SerializeField] private GameObject _pause;
+    [SerializeField] private GameObject _sound;
     [SerializeField] private GameObject _add;
     [SerializeField] private GameObject _gold;
     [SerializeField] private GameObject _firstSlide;
@@ -18,6 +19,7 @@ public class TutorialPannel : MonoBehaviour
             _pause.SetActive(false);
             _add.SetActive(false);
             _gold.SetActive(false);
+            _sound.SetActive(false);
             _firstSlide.SetActive(true);
         }
     }
@@ -34,6 +36,7 @@ public class TutorialPannel : MonoBehaviour
         _pause.SetActive(true);
         _add.SetActive(true);
         _gold.SetActive(true);
+        _sound.SetActive(true);
         _secondSlide.SetActive(false);
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VideoButton : MonoBehaviour
 {
+    private float _volume;
+
     public void OnClick()
     {
         Agava.YandexGames.InterstitialAd.Show(GameOff, GameOn);
@@ -12,13 +14,14 @@ public class VideoButton : MonoBehaviour
 
     private void GameOff()
     {
+        _volume = AudioListener.volume;
         AudioListener.volume = 0;
         Time.timeScale = 0;
     }
 
     private void GameOn(bool isbool)
     {
-        AudioListener.volume = 1;
+        AudioListener.volume = _volume;
         Time.timeScale = 1;
     }
 }

@@ -8,6 +8,7 @@ public class BuyButton : MonoBehaviour
 
     private int _intPrice;
     private int _videoReward = 5;
+    private float _volume = 5;
 
     public void BuyCells()
     {
@@ -53,12 +54,13 @@ public class BuyButton : MonoBehaviour
 
     private void GameOff()
     {
+        _volume = AudioListener.volume;
         AudioListener.volume = 0;
         Time.timeScale = 0;
     }
     private void GameOn()
     {
-            AudioListener.volume = 1;
+            AudioListener.volume = _volume;
             Time.timeScale = 1;
     }
 

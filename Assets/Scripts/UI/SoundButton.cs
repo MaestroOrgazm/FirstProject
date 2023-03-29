@@ -8,17 +8,25 @@ public class SoundButton : MonoBehaviour
     [SerializeField] private Image _soundIcon;
     [SerializeField] private Sprite _soundOn;
     [SerializeField] private Sprite _soundOff;
-    
-    private bool _isSound = true;
+
+    private float _volume;
+
+    public static bool IsSound { get; private set; } = true;
+
+    private void Start()
+    {
+        _volume = AudioListener.volume;
+        IsSound = true;
+    }
 
     public void SoundChange()
     {
-        _isSound = !_isSound;
+        IsSound = !IsSound;
 
-        if ( _isSound )
+        if ( IsSound )
         {
             _soundIcon.sprite = _soundOn;
-            AudioListener.volume = 1;
+            AudioListener.volume = _volume;
         }
         else
         {

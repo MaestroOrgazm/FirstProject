@@ -7054,7 +7054,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -7114,8 +7114,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.07998657, y: -0.00099182}
-  m_SizeDelta: {x: 686.17, y: 365.94}
+  m_AnchoredPosition: {x: 73.382, y: 1.031}
+  m_SizeDelta: {x: 518.612, y: 343.243}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &583157432
 PrefabInstance:
@@ -17584,6 +17584,7 @@ MonoBehaviour:
   _NamePannel: {fileID: 876758612}
   _keyPannel: {fileID: 2144343885}
   _MenuSound: {fileID: 1413478408}
+  _slider: {fileID: 2045868688}
   _back: {fileID: 1198162431}
   _text: {fileID: 624974344}
   _placeholder: {fileID: 1936610455}

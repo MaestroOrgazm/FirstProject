@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SoundBack : MonoBehaviour
 {
+    private float _volume = 1;
+
     private void OnEnable()
     {
         WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
@@ -18,9 +20,17 @@ public class SoundBack : MonoBehaviour
 
     private void OnInBackgroundChange(bool inBackground)
     {
-        // Use both pause and volume muting methods at the same time.
-        // They're both broken in Web, but work perfect together. Trust me on this.
         AudioListener.pause = inBackground;
-        AudioListener.volume = inBackground ? 0f : 1f;
+
+        if (inBackground )
+        {
+            _volume = AudioListener.volume;
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = _volume;
+        }
+
     }
 }
