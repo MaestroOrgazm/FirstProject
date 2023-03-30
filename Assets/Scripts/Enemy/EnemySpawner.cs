@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private int _maxChanceBig = 2;
     private float _lastTime = 1;
     private float _allCount = 1;
+    private int _deltaFlip = 90;
     private Vector3 _randomPosition;
 
     public  List<Enemy> EnemyList { get; private set; } = new();
@@ -41,7 +42,6 @@ public class EnemySpawner : MonoBehaviour
 
     public void ChanceUp(int countLevel)
     {
-
         if (_chanceMediumEnemy > _maxChance && _chanceBigEnemy > _maxChanceBig)
         {
             _chanceBigEnemy -= countLevel/_deltaBig;
@@ -87,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
             _allCount++;
             EnemyList.Add(enemy);
             enemy.SetPath(_target, this);
-            enemy.transform.eulerAngles = new Vector3(0,90,0);
+            enemy.transform.eulerAngles = new Vector3(0, _deltaFlip, 0);
             enemy.transform.SetParent(null);
             _lastTime = _spawnTime;
         }

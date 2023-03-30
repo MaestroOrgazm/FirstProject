@@ -5,24 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    private string _over = "Over";
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            //Agava.YandexGames.VideoAd.Show(GameOff, GameOn);
-            SceneManager.LoadScene("Over");
+            SceneManager.LoadScene(_over);
         }
-    }
-
-    private void GameOff()
-    {
-        AudioListener.volume = 0;
-        Time.timeScale = 0;
-    }
-
-    private void GameOn()
-    {
-        AudioListener.volume = 1;
-        Time.timeScale = 1;
     }
 }

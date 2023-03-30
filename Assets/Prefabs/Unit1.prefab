@@ -403,6 +403,8 @@ GameObject:
   - component: {fileID: 9137581585135994966}
   - component: {fileID: 2284801207353120666}
   - component: {fileID: -5915782569133079502}
+  - component: {fileID: -3903463136865916466}
+  - component: {fileID: 61942780759609950}
   m_Layer: 0
   m_Name: Unit1
   m_TagString: Untagged
@@ -430,7 +432,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4435829135072800840
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -447,7 +449,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!54 &5678546046156426262
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -494,7 +497,6 @@ MonoBehaviour:
   _nextCard: {fileID: 11400000, guid: 9102a85adc56c5848a7a89c56973f86f, type: 2}
   _unitCard: {fileID: 11400000, guid: 917db2871853ad24eb42adf5995294e1, type: 2}
   _bullet: {fileID: 8434693290396725769, guid: f723b837252c9ad4faf428cbfd9157e5, type: 3}
-  _tmpText: {fileID: 172425922583492242}
   _audioSource: {fileID: -5915782569133079502}
 --- !u!136 &2284801207353120666
 CapsuleCollider:
@@ -606,6 +608,59 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3903463136865916466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705402075998324148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d0938aa77ac0d4cb6157b4f565ec57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tmpText: {fileID: 172425922583492242}
+--- !u!114 &61942780759609950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705402075998324148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1352148a567292049b16b9a345da8c30
+    m_TableEntryReference:
+      m_KeyId: 27746216169689088
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 172425922583492242}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7534262480104691789
 GameObject:
   m_ObjectHideFlags: 0

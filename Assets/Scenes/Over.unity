@@ -1359,13 +1359,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d6dd5b87d175a468ed865303780bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SettingPannel: {fileID: 0}
-  _ShopPannel: {fileID: 0}
-  _MenuPannel: {fileID: 0}
-  _LeaderPannel: {fileID: 0}
-  _NamePannel: {fileID: 0}
+  _settingPannel: {fileID: 0}
+  _shopPannel: {fileID: 0}
+  _menuPannel: {fileID: 0}
+  _leaderPannel: {fileID: 0}
+  _namePannel: {fileID: 0}
   _keyPannel: {fileID: 0}
-  _MenuSound: {fileID: 896162614}
+  _menuSound: {fileID: 896162614}
+  _slider: {fileID: 0}
   _back: {fileID: 0}
   _text: {fileID: 0}
   _placeholder: {fileID: 0}

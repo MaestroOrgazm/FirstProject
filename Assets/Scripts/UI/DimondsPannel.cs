@@ -9,13 +9,13 @@ public class DimondsPannel : MonoBehaviour
 
     private void OnEnable()
     {
-        _tmpText.text = $"{Wallet.Dimonds}";
-        Wallet.DimondsChanged += DimondsChange;
+        _tmpText.text = ResoursesWallet.Dimonds.ToString();
+        ResoursesWallet.DimondsChanged += DimondsChange;
     }
 
     private void OnDisable()
     {
-        Wallet.DimondsChanged -= DimondsChange;
+        ResoursesWallet.DimondsChanged -= DimondsChange;
     }
 
     private void DimondsChange(int dimonds)

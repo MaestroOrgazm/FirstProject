@@ -14,24 +14,26 @@ public class UnitSpawner : MonoBehaviour
 
     private int _price = 0;
     private int _priceUp = 5;
+    private int _minCells = 6;
+    private int _maxCells = 9;
 
     private void Start()
     {
         _tmpText.text = _price.ToString();
 
-        if (Wallet.IsUpgrade)
+        if (ResoursesWallet.IsUpgrade)
             _upgrade.SetActive(true);
     }
 
 
     public void Spawn()
     {
-        if (Wallet.Money >= _price)
+        if (LevelWallet.Money >= _price)
         {
-            int countPoint = 6;
+            int countPoint = _minCells;
 
-            if (Wallet.IsUpgrade)
-                countPoint = 9;
+            if (ResoursesWallet.IsUpgrade)
+                countPoint = _maxCells;
 
             Transform point = GetPoint(countPoint);
 
@@ -40,7 +42,7 @@ public class UnitSpawner : MonoBehaviour
                 Unit unit = null;
                 unit = Instantiate(_unit, point);
                 unit.SetSpawner(_spawner);
-                Wallet.ChangeMoney(-_price);
+                LevelWallet.ChangeMoney(-_price);
                 _price += _priceUp;
                 _tmpText.text = _price.ToString();
             }

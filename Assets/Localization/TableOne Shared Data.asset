@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: Label
     m_Metadata:
       m_Items: []
+  - m_Id: 27746216169689088
+    m_Key: UnitLevel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class Wallet : MonoBehaviour
+public class ResoursesWallet : MonoBehaviour
 {
     [SerializeField] private AudioSource _MenuSound = null;
 
@@ -12,20 +12,12 @@ public class Wallet : MonoBehaviour
     private static int _boolTrue = 1;
 
     public static string Name = "Anonim";
-    public static int DeltaMoney { get; private set; } = 15;
-    public static int Money { get; private set; }
     public static int Dimonds { get; private set; }
     public static bool IsUpgrade { get; private set; }
     public static bool AttackBonus { get; private set; }
-    public static float Percent { get; private set; } = 1.1f;
+    public static float AttackPercent { get; private set; } = 1.1f;
 
-    public static event UnityAction<int> MoneyChanged;
     public static event UnityAction<int> DimondsChanged;
-
-    private void Awake()
-    {
-        Money = DeltaMoney;
-    }
 
     private void Start()
     {
@@ -38,7 +30,7 @@ public class Wallet : MonoBehaviour
             SetAttackBonus();
     }
 
-    public void Zero()
+    public void ZeroProgress()
     {
         _MenuSound.Play();
         Level.SetLevelOne();
@@ -47,12 +39,6 @@ public class Wallet : MonoBehaviour
         PlayerPrefs.SetInt(_strDimonds, 0);
         SetDimonds(PlayerPrefs.GetInt(_strDimonds));
         SceneManager.LoadScene("Menu");
-    }
-
-    public static void ChangeMoney(int money)
-    {
-        Money += money;
-        MoneyChanged?.Invoke(Money);
     }
 
     public static void ChangeDimonds(int dimonds)

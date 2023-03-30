@@ -5,16 +5,15 @@ public class GoldPannel : MonoBehaviour
 {
     [SerializeField] private TMP_Text _tmpText;
 
-
     private void OnEnable()
     {
-        _tmpText.text = $"{Wallet.DeltaMoney}";
-        Wallet.MoneyChanged += GoldChange;
+        _tmpText.text = LevelWallet.Money.ToString();
+        LevelWallet.MoneyChanged += GoldChange;
     }
 
     private void OnDisable()
     {
-        Wallet.MoneyChanged -= GoldChange;
+        LevelWallet.MoneyChanged -= GoldChange;
     }
 
     private void GoldChange(int gold)

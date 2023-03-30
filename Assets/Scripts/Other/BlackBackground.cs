@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BlackBack : MonoBehaviour
+public class BlackBackground : MonoBehaviour
 {
     [SerializeField] private Image _back;
 

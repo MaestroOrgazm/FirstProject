@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class MenuButton : MonoBehaviour
 {
-    [SerializeField] private GameObject _SettingPannel;
-    [SerializeField] private GameObject _ShopPannel;
-    [SerializeField] private GameObject _MenuPannel;
-    [SerializeField] private GameObject _LeaderPannel;
-    [SerializeField] private GameObject _NamePannel;
+    [SerializeField] private GameObject _settingPannel;
+    [SerializeField] private GameObject _shopPannel;
+    [SerializeField] private GameObject _menuPannel;
+    [SerializeField] private GameObject _leaderPannel;
+    [SerializeField] private GameObject _namePannel;
     [SerializeField] private GameObject _keyPannel;
-    [SerializeField] private AudioSource _MenuSound;
+    [SerializeField] private AudioSource _menuSound;
     [SerializeField] private Slider _slider;
     [SerializeField] private Image _back;
     [SerializeField] private TMP_InputField _text;
@@ -24,7 +24,7 @@ public class MenuButton : MonoBehaviour
     private void Start()
     {
         if(_placeholder != null)
-        _placeholder.text = Wallet.Name;
+        _placeholder.text = ResoursesWallet.Name;
 
         if (_slider != null)
             _slider.value = AudioListener.volume;
@@ -32,44 +32,44 @@ public class MenuButton : MonoBehaviour
 
     public void OpenSetting()
     {
-        _NamePannel.SetActive(false);
-        _SettingPannel.SetActive(true);
-        _MenuPannel.SetActive(false);
-        _MenuSound.Play();
+        _namePannel.SetActive(false);
+        _settingPannel.SetActive(true);
+        _menuPannel.SetActive(false);
+        _menuSound.Play();
     }
 
     public void OpenLeaderboard()
     {
-        _NamePannel.SetActive(false);
-        _MenuPannel.SetActive(false);
-        _LeaderPannel.SetActive(true);
-        _MenuSound.Play();
+        _namePannel.SetActive(false);
+        _menuPannel.SetActive(false);
+        _leaderPannel.SetActive(true);
+        _menuSound.Play();
     }
 
     public void CloseLeaderbord()
     {
-        _NamePannel.SetActive(true);
-        _MenuPannel.SetActive(true);
-        _LeaderPannel.SetActive(false);
-        _MenuSound.Play();
+        _namePannel.SetActive(true);
+        _menuPannel.SetActive(true);
+        _leaderPannel.SetActive(false);
+        _menuSound.Play();
     }
 
     public void ChangeName(string name)
     {
-        Wallet.Name = name;
+        ResoursesWallet.Name = name;
         _text.text = name;
-        _placeholder.text = Wallet.Name;
+        _placeholder.text = ResoursesWallet.Name;
     }
 
     public void OnSelect()
     {
-        _MenuPannel.SetActive(false);
+        _menuPannel.SetActive(false);
         _keyPannel.SetActive(true);
     }
 
     public void Ok()
     {
-        _MenuPannel.SetActive(true);
+        _menuPannel.SetActive(true);
         _keyPannel.SetActive(false);
     }
 
@@ -80,38 +80,38 @@ public class MenuButton : MonoBehaviour
 
     public void ExitSetting()
     {
-        _NamePannel.SetActive(true);
-        _SettingPannel.SetActive(false);
-        _MenuPannel.SetActive(true);
-        _MenuSound.Play();
+        _namePannel.SetActive(true);
+        _settingPannel.SetActive(false);
+        _menuPannel.SetActive(true);
+        _menuSound.Play();
     }
 
     public void OpenShop()
     {
-        _NamePannel.SetActive(false);
-        _ShopPannel.SetActive(true);
-        _MenuPannel.SetActive(false);
-        _MenuSound.Play();
+        _namePannel.SetActive(false);
+        _shopPannel.SetActive(true);
+        _menuPannel.SetActive(false);
+        _menuSound.Play();
     }
 
     public void ExitShop()
     {
-        _NamePannel.SetActive(true);
-        _ShopPannel.SetActive(false);
-        _MenuPannel.SetActive(true);
-        _MenuSound.Play();
+        _namePannel.SetActive(true);
+        _shopPannel.SetActive(false);
+        _menuPannel.SetActive(true);
+        _menuSound.Play();
     }
 
     public void LoadMenu()
     {
-        _MenuSound.Play();
+        _menuSound.Play();
         SceneManager.LoadScene("Menu");
     }
 
     public void LoadLevel()
     {
         _back.raycastTarget = true;
-        _MenuSound.Play();
+        _menuSound.Play();
         _coroutine = StartCoroutine(StartBlackBack());
     }
 

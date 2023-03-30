@@ -105,6 +105,10 @@ MonoBehaviour:
     m_Localized: "Invasion \nof \nmonsters"
     m_Metadata:
       m_Items: []
+  - m_Id: 27746216169689088
+    m_Localized: 'Lvl. '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

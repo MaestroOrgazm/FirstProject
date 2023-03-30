@@ -9,6 +9,8 @@ public class PauseAndPlay : MonoBehaviour
     [SerializeField] private GameObject _add;
     [SerializeField] private GameObject _pannel;
 
+    private string _menu = "Menu";
+
     public void Pause()
     {
         Time.timeScale = 0;
@@ -27,6 +29,6 @@ public class PauseAndPlay : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(_menu);
     }
 }

@@ -41,8 +41,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage (float damage)
     {
         _system.Play();
-        if (Wallet.AttackBonus)
-            _health -= damage*Wallet.Percent;
+        if (ResoursesWallet.AttackBonus)
+            _health -= damage*ResoursesWallet.AttackPercent;
         else
             _health -= damage;
 
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         _isDie = true;
         _audioSource.Play();
         _isMoving = false;
-        Wallet.ChangeMoney(_revard);
+        LevelWallet.ChangeMoney(_revard);
         _animator.SetTrigger("Die");
         _spawner.DeleteEnemy(this);
         Destroy(this.gameObject, _deley);

@@ -9,12 +9,12 @@ public class Unit : MonoBehaviour
     [SerializeField] private UnitCard _nextCard;
     [SerializeField] private UnitCard _unitCard;
     [SerializeField] private Bullet _bullet;
-    [SerializeField] private TMP_Text _tmpText;
     [SerializeField] private AudioSource _audioSource;
 
     private Unit _saveUnit;
     private EnemySpawner _spawner;
     private float _currentTime = 0;
+    private bool _isShoot;
 
     public SpawnPoint Point { get; private set; }
 
@@ -26,19 +26,18 @@ public class Unit : MonoBehaviour
     {
         Drag = GetComponent<UnitDrag>();
         Point = transform.GetComponentInParent<SpawnPoint>();
+
+        if (gameObject.GetComponentInParent<SpawnPoint>())
+            _isShoot = true;
     }
 
     private void FixedUpdate()
     {
         _currentTime -= Time.deltaTime;
 
-        if (gameObject.GetComponentInParent<SpawnPoint>())
+        if (_isShoot)
             Shoot();
 
-        if (gameObject.GetComponentInParent<SpawnPoint>())
-            _tmpText.text = $"Lvl. {_unitCard.Grade}";
-        else
-            _tmpText.text = null;
     }
 
     private void OnTriggerEnter(Collider collider)

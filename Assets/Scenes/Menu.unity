@@ -5189,7 +5189,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1413478407}
         m_TargetAssemblyTypeName: Wallet, Assembly-CSharp
-        m_MethodName: Zero
+        m_MethodName: ZeroProgress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16461,7 +16461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myRank: {fileID: 1015999827}
-  _AllTable: {fileID: 582533144}
+  _allTable: {fileID: 582533144}
 --- !u!4 &1339076965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -17577,13 +17577,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d6dd5b87d175a468ed865303780bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SettingPannel: {fileID: 1493052879}
-  _ShopPannel: {fileID: 273379633}
-  _MenuPannel: {fileID: 677954702}
-  _LeaderPannel: {fileID: 1337493324}
-  _NamePannel: {fileID: 876758612}
+  _settingPannel: {fileID: 1493052879}
+  _shopPannel: {fileID: 273379633}
+  _menuPannel: {fileID: 677954702}
+  _leaderPannel: {fileID: 1337493324}
+  _namePannel: {fileID: 876758612}
   _keyPannel: {fileID: 2144343885}
-  _MenuSound: {fileID: 1413478408}
+  _menuSound: {fileID: 1413478408}
   _slider: {fileID: 2045868688}
   _back: {fileID: 1198162431}
   _text: {fileID: 624974344}

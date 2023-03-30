@@ -4,8 +4,6 @@ using UnityEngine;
 public class Car : MonoBehaviour
 {
     [SerializeField] private float _speed = 1;
-    [SerializeField] private GameObject _wheelOne;
-    [SerializeField] private GameObject _wheelTwo;
     [SerializeField] private Transform _target;
     [SerializeField] private EnemySpawner _spawner;
 
