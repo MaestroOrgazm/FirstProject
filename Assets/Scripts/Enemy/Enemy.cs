@@ -41,8 +41,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage (float damage)
     {
         _system.Play();
-        if (ResoursesWallet.AttackBonus)
-            _health -= damage*ResoursesWallet.AttackPercent;
+        if (Store.AttackBonus)
+            _health -= damage*Store.AttackPercent;
         else
             _health -= damage;
 

@@ -14,7 +14,7 @@ public class BuyButton : MonoBehaviour
     {
         if (BuyItem())
         {
-            ResoursesWallet.SetUpgrade();
+            Store.SetUpgrade();
             gameObject.SetActive(false);
         }
     }
@@ -22,7 +22,7 @@ public class BuyButton : MonoBehaviour
     {
         if (BuyItem())
         {
-            ResoursesWallet.SetAttackBonus();
+            Store.SetAttackBonus();
             gameObject.SetActive(false);
         }
     }
@@ -36,9 +36,9 @@ public class BuyButton : MonoBehaviour
     {
         if(int.TryParse(_price.text, out _intPrice))
         {
-            if (_intPrice <= ResoursesWallet.Dimonds)
+            if (_intPrice <= Store.Dimonds)
             {
-                ResoursesWallet.ChangeDimonds(-_intPrice);
+                Store.ChangeDimonds(-_intPrice);
                 return true;
             }
             else
@@ -66,6 +66,6 @@ public class BuyButton : MonoBehaviour
 
     private void Reward()
     {
-        ResoursesWallet.ChangeDimonds(_videoReward);
+        Store.ChangeDimonds(_videoReward);
     }
 }

@@ -21,7 +21,7 @@ public class UnitSpawner : MonoBehaviour
     {
         _tmpText.text = _price.ToString();
 
-        if (ResoursesWallet.IsUpgrade)
+        if (Store.IsUpgrade)
             _upgrade.SetActive(true);
     }
 
@@ -32,7 +32,7 @@ public class UnitSpawner : MonoBehaviour
         {
             int countPoint = _minCells;
 
-            if (ResoursesWallet.IsUpgrade)
+            if (Store.IsUpgrade)
                 countPoint = _maxCells;
 
             Transform point = GetPoint(countPoint);

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    private string _over = "Over";
+    private const string _over = "Over";
 
     private void OnTriggerEnter(Collider other)
     {

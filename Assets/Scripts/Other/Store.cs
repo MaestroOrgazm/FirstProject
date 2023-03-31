@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class ResoursesWallet : MonoBehaviour
+public class Store : MonoBehaviour
 {
     [SerializeField] private AudioSource _MenuSound = null;
 

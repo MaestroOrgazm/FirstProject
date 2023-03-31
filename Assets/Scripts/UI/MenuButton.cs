@@ -20,11 +20,13 @@ public class MenuButton : MonoBehaviour
 
     private float value = 0.005f;
     private Coroutine _coroutine;
+    private const string _level = "Level";
+    private const string _menu = "Menu";
 
     private void Start()
     {
         if(_placeholder != null)
-        _placeholder.text = ResoursesWallet.Name;
+        _placeholder.text = Store.Name;
 
         if (_slider != null)
             _slider.value = AudioListener.volume;
@@ -56,9 +58,9 @@ public class MenuButton : MonoBehaviour
 
     public void ChangeName(string name)
     {
-        ResoursesWallet.Name = name;
+        Store.Name = name;
         _text.text = name;
-        _placeholder.text = ResoursesWallet.Name;
+        _placeholder.text = Store.Name;
     }
 
     public void OnSelect()
@@ -105,7 +107,7 @@ public class MenuButton : MonoBehaviour
     public void LoadMenu()
     {
         _menuSound.Play();
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(_menu);
     }
 
     public void LoadLevel()
@@ -117,7 +119,7 @@ public class MenuButton : MonoBehaviour
 
     public void LoadLevelAfter()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene(_level);
         Time.timeScale = 1;
     }
 
@@ -131,7 +133,7 @@ public class MenuButton : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene(_level);
         Time.timeScale = 1;
     }
 

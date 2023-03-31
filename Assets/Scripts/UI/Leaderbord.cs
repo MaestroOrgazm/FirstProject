@@ -15,7 +15,7 @@ public class Leaderbord : MonoBehaviour
     {
         _allTable.text = "";
         _currentcount = 1;
-        Agava.YandexGames.Leaderboard.SetScore("IoM", Level.CountLevel, null, null, ResoursesWallet.Name);
+        Agava.YandexGames.Leaderboard.SetScore("IoM", Level.CountLevel, null, null, Store.Name);
         Agava.YandexGames.Leaderboard.GetEntries("IoM", (result) =>
         {
             _myRank.text = result.userRank.ToString();
